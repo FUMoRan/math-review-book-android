@@ -20,8 +20,8 @@ android {
         applicationId = "com.fumoran.mathreview"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 2
+        versionName = "1.0.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -82,8 +82,6 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.7.0")
     implementation("androidx.exifinterface:exifinterface:1.3.7")
 
-    implementation("io.noties.markwon:core:4.6.2")
-    implementation("io.noties.markwon:ext-latex:4.6.2")
     implementation("ru.noties:jlatexmath-android:0.2.0")
 
     testImplementation("junit:junit:4.13.2")

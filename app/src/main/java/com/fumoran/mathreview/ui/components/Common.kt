@@ -1,6 +1,5 @@
 package com.fumoran.mathreview.ui.components
 
-import android.graphics.Typeface
 import android.util.TypedValue
 import android.widget.TextView
 import androidx.compose.foundation.background
@@ -19,19 +18,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.fumoran.mathreview.data.STATUS_LABEL
-import io.noties.markwon.Markwon
-import io.noties.markwon.ext.latex.JLatexMathPlugin
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-/** 原生渲染 Markdown + LaTeX（无 WebView）。 */
+/**
+ * 原生渲染文本 + LaTeX（无 WebView）。
+ * 公式切分规则与网页端一致：支持 $...$、$$...$$、\(...\)、\[...\] 及无定界符的裸公式。
+ */
 @Composable
 fun MathText(
     text: String,
@@ -42,16 +41,8 @@ fun MathText(
     val color = MaterialTheme.colorScheme.onSurface
     val density = LocalDensity.current
     val px = with(density) { style.fontSize.toPx() }
-    val appContext = LocalContext.current.applicationContext
-
-    val markwon = remember(px, color, appContext) {
-        Markwon.builder(appContext)
-            .usePlugin(
-                JLatexMathPlugin.create(px) { builder ->
-                    builder.theme().textColor(color.toArgb())
-                }
-            )
-            .build()
+    val rendered = remember(text, px, color) {
+        MathRender.render(text, px, color.toArgb())
     }
 
     AndroidView(
@@ -59,13 +50,14 @@ fun MathText(
         factory = { ctx ->
             TextView(ctx).apply {
                 setTextIsSelectable(true)
-                typeface = Typeface.DEFAULT
+                setPadding(0, 0, 0, 0)
             }
         },
         update = { tv ->
             tv.setTextColor(color.toArgb())
             tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, px)
-            markwon.setMarkdown(tv, text)
+            tv.setLineSpacing(0f, 1.15f)
+            tv.text = rendered
         }
     )
 }

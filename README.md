@@ -1,6 +1,6 @@
 # 数学复习本 · Android
 
-原生 Android 客户端（Kotlin + Jetpack Compose），**不使用 WebView**。公式通过 Markwon + JLatexMath 在本地渲染。
+原生 Android 客户端（Kotlin + Jetpack Compose），**不使用 WebView**。公式通过 JLatexMath 在本地渲染，定界符与裸公式的识别规则与网页端保持一致。
 
 ## 功能
 

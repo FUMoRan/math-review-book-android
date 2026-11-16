@@ -210,9 +210,10 @@ fun SettingsScreen(vm: AppViewModel, onBack: () -> Unit) {
             )
 
             SectionLabel("关于")
-            Text("数学复习本 Android 1.0.0", style = MaterialTheme.typography.bodyMedium)
+            Text("数学复习本 Android 1.0.1", style = MaterialTheme.typography.bodyMedium)
             Text(
-                "原生实现，不使用 WebView；公式由 Markwon + JLatexMath 本地渲染。\n" +
+                "原生实现，不使用 WebView；公式由 JLatexMath 本地渲染，\n" +
+                    "定界符与裸公式识别规则与网页端一致。\n" +
                     "数据保存在应用私有目录，API Key 仅存本机，不上传任何服务器。",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant

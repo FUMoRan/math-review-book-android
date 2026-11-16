@@ -1,0 +1,18 @@
+*.iml
+.gradle/
+.kotlin/
+/local.properties
+/.idea/
+.DS_Store
+build/
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+/app/release
+/app/debug
+/keystore
+/keystore.properties
+
+# 保留 Gradle Wrapper 的可执行 jar（部分环境全局忽略 *.jar）
+!/gradle/wrapper/gradle-wrapper.jar

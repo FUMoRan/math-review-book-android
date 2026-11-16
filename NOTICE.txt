@@ -1,0 +1,8 @@
+数学复习本 · Android (MathReviewBook)
+
+Copyright © FUMoRan. All Rights Reserved.
+
+1. 本仓库源代码仅用于展示与学习参考，不构成任何开源许可授权。
+2. 未经版权所有者书面许可，不得复制、修改、再分发、商用或以任何形式用于衍生作品。
+3. 第三方依赖（AndroidX、Jetpack Compose、Kotlin、OkHttp、Coil、Markwon、JLatexMath 等）分别遵循其自身许可。
+4. 本软件按“现状”提供，不附带任何明示或暗示的担保。
